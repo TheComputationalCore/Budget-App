@@ -1,10 +1,7 @@
 def create_spend_chart(categories):
-    """Generate a vertical bar chart showing spending percentages."""
-
     spent_by_category = []
     total_spent = 0
 
-    # Calculate money spent per category
     for category in categories:
         spent = sum(
             -item["amount"] for item in category.ledger if item["amount"] < 0
@@ -12,30 +9,30 @@ def create_spend_chart(categories):
         spent_by_category.append(spent)
         total_spent += spent
 
-    # Convert to percentage buckets (10% steps)
-    percentages = [
-        int(((spent / total_spent) * 100) // 10 * 10) if total_spent else 0
-        for spent in spent_by_category
-    ]
+    percentages = []
+    for spent in spent_by_category:
+        if total_spent > 0:
+            percentage = (spent / total_spent * 100) // 10 * 10
+        else:
+            percentage = 0
+        percentages.append(int(percentage))
 
     chart = "Percentage spent by category\n"
 
-    # Percentage rows
     for i in range(100, -10, -10):
-        row = f"{str(i).rjust(3)}| "
-        for p in percentages:
-            row += "o  " if p >= i else "   "
-        chart += row + "\n"
+        line = f"{str(i).rjust(3)}| "
+        for percentage in percentages:
+            line += "o  " if percentage >= i else "   "
+        chart += line + "\n"
 
-    # Horizontal line
-    chart += "    " + "-" * (len(categories) * 3 + 1) + "\n"
+    chart += "    " + "-" * (3 * len(categories) + 1) + "\n"
 
-    # Category names vertically
-    max_len = max(len(c.name) for c in categories)
-    for i in range(max_len):
-        row = "     "
-        for c in categories:
-            row += (c.name[i] if i < len(c.name) else " ") + "  "
-        chart += row + "\n"
+    max_name_length = max(len(category.name) for category in categories)
+    for i in range(max_name_length):
+        line = "     "
+        for category in categories:
+            char = category.name[i] if i < len(category.name) else " "
+            line += f"{char}  "
+        chart += line + "\n"
 
-    return chart.rstrip()
+    return chart.rstrip("\n")

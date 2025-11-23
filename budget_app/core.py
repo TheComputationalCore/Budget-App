@@ -46,3 +46,4 @@ class Category:
             items += f"{desc}{amount}\n"
         total = f"Total: {self.get_balance():.2f}"
         return title + items + total
+

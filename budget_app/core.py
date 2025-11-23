@@ -32,12 +32,11 @@ class Category:
         return amount <= self.get_balance()
 
     def __str__(self):
-        title = f"{self.name.center(30, '*')}
-"
+        title = f"{self.name.center(30, '*')}\n"
         items = ""
         for item in self.ledger:
             desc = item["description"][:23].ljust(23)
-            amount = f"{item['amount']:.2f}"[:7].rjust(7)
+            amount = f"{item['amount']:.2f}".rjust(7)
             items += f"{desc}{amount}\n"
         total = f"Total: {self.get_balance():.2f}"
         return title + items + total

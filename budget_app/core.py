@@ -20,10 +20,16 @@ class Category:
     def transfer(self, amount, category):
         if self.check_funds(amount):
             self.ledger.append(
-                {"amount": -float(amount), "description": f"Transfer to {category.name}"}
+                {
+                    "amount": -float(amount),
+                    "description": f"Transfer to {category.name}",
+                }
             )
             category.ledger.append(
-                {"amount": float(amount), "description": f"Transfer from {self.name}"}
+                {
+                    "amount": float(amount),
+                    "description": f"Transfer from {self.name}",
+                }
             )
             return True
         return False

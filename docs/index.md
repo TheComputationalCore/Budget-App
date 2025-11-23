@@ -1,22 +1,34 @@
 # Budget App
 
-Welcome to the **Budget App** documentation.  
-This project provides a clean, Pythonic way to manage budget categories, track transactions, and visualize spending as a bar chart.
+Welcome to the **Budget App** documentation.
+
+This application provides a clean, Pythonic way to manage budget categories, track deposits and withdrawals, transfer funds between categories, and visualize spending across categories using a vertical percentage bar chart.
 
 ---
 
-## 🚀 What This App Does
+## 🚀 Features
 
 - Track deposits, withdrawals, and transfers  
-- Maintain independent budget categories  
-- Validate available funds before transactions  
-- Generate a spend chart showing your spending distribution  
-- Provide a clean CLI to interact with the app  
-- Include full documentation and tests  
+- Maintain multiple independent budget categories  
+- Validate funds before spending or transferring  
+- Generate a clean spending chart with percentage breakdown  
+- Command-line interface support  
+- No external dependencies  
 
 ---
 
-## 📦 Quick Start
+## 📚 Documentation
+
+Use the navigation menu to explore:
+
+- **Usage Guide** — Learn how to use the Category class  
+- **API Reference** — Full details of all methods  
+- **CLI Guide** — Command-line usage  
+- **Examples** — Realistic full workflows  
+
+---
+
+## 🔧 Installation
 
 ```bash
 pip install .

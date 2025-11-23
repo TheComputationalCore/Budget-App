@@ -1,6 +1,7 @@
 from budget_app.core import Category
 from budget_app.chart import create_spend_chart
 
+
 def test_spend_chart_output():
     food = Category("Food")
     clothing = Category("Clothing")
@@ -19,7 +20,7 @@ def test_spend_chart_output():
 
     assert "Percentage spent by category" in chart
 
-    # Category names appear vertically — test by characters, not whole names
+    # Categories appear vertically — verify characters
     for char in "Food":
         assert char in chart
 

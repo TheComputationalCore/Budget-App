@@ -1,0 +1,25 @@
+[project]
+name = "budget_app"
+version = "1.0.0"
+description = "A Python utility for managing budget categories and generating spend charts."
+authors = [
+    { name = "TheComputationalCore" }
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/TheComputationalCore/Budget-App"
+Documentation = "https://thecomputationalcore.github.io/Budget-App"
+Source = "https://github.com/TheComputationalCore/Budget-App"
+Issues = "https://github.com/TheComputationalCore/Budget-App/issues"
+
+[project.scripts]
+budget-app = "budget_app.cli:main"
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"

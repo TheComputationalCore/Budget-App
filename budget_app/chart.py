@@ -17,15 +17,18 @@ def create_spend_chart(categories):
             percentage = 0
         percentages.append(int(percentage))
 
-    chart = "Percentage spent by category\n"
+    chart = "Percentage spent by category
+"
 
     for i in range(100, -10, -10):
         line = f"{str(i).rjust(3)}| "
         for percentage in percentages:
             line += "o  " if percentage >= i else "   "
-        chart += line + "\n"
+        chart += line + "
+"
 
-    chart += "    " + "-" * (3 * len(categories) + 1) + "\n"
+    chart += "    " + "-" * (3 * len(categories) + 1) + "
+"
 
     max_name_length = max(len(category.name) for category in categories)
     for i in range(max_name_length):
@@ -33,6 +36,8 @@ def create_spend_chart(categories):
         for category in categories:
             char = category.name[i] if i < len(category.name) else " "
             line += f"{char}  "
-        chart += line + "\n"
+        chart += line + "
+"
 
-    return chart.rstrip("\n")
+    return chart.rstrip("
+")

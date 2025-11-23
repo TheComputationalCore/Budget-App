@@ -23,10 +23,7 @@ class Category:
                 {"amount": -float(amount), "description": f"Transfer to {category.name}"}
             )
             category.ledger.append(
-                {
-                    "amount": float(amount),
-                    "description": f"Transfer from {self.name}",
-                }
+                {"amount": float(amount), "description": f"Transfer from {self.name}"}
             )
             return True
         return False

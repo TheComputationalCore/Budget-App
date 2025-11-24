@@ -1,76 +1,65 @@
-# Budget App
+# 📊 Budget App
 
-A Python project to manage budget categories and visualize spending as a bar chart.
+A clean, Pythonic toolkit for managing personal budget categories, tracking transactions, and visualizing spending through percentage-based charts.  
+Fully documented, fully tested, and shipped with a simple command-line interface.
 
-## Overview
+## 🔖 Badges
 
-This project implements a `Category` class for tracking financial transactions (deposits, withdrawals, transfers) and a `create_spend_chart` function to generate a bar chart of spending percentages across categories. It supports precise formatting for ledger display and spending visualization.
+![Tests](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/tests.yml?label=Tests&logo=pytest)
+![Lint](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/lint.yml?label=Lint&logo=python)
+![Docs](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/deploy-docs.yml?label=Docs&logo=mkdocs)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![License](https://img.shields.io/github/license/TheComputationalCore/Budget-App)
 
-## Features
+## 🚀 Features
 
-- **Category Management**:
-  - Initialize categories (e.g., Food, Clothing) with a ledger to track transactions.
-  - Deposit funds with optional descriptions (defaults to empty string).
-  - Withdraw funds (as negative amounts) if sufficient balance exists.
-  - Transfer funds between categories with descriptive entries.
-  - Check available funds before withdrawals or transfers.
-  - Display ledger with formatted descriptions (first 23 characters), amounts (7 characters, right-aligned, two decimal places), and total balance.
-- **Spending Chart**:
-  - Generates a bar chart showing percentage spent per category (based on withdrawals only).
-  - Percentages rounded down to the nearest 10.
-  - Uses 'o' characters for bars, with labels from 0 to 100.
-  - Displays category names vertically below bars.
-  - Ensures exact spacing and formatting (e.g., two spaces between bars, horizontal line extends two spaces past final bar).
-- Supports up to four categories in the spend chart.
+- Track deposits, withdrawals, and transfers  
+- Maintain multiple independent budget categories  
+- Validate funds before spending or transferring  
+- Generate clean text-based spending charts  
+- Command-line interface included  
+- Full MkDocs documentation  
+- Pytest test suite  
+- Automatic Black/Flake8 linting  
 
-## Installation
+## 📦 Installation
 
-1. Ensure Python 3.x is installed.
-2. Download or clone this repository:
-   ```bash
-   git clone https://github.com/thesoulseizure/budget-app.git
-   ```
-3. Navigate to the project directory:
-   ```bash
-   cd budget-app
-   ```
+```bash
+git clone https://github.com/TheComputationalCore/Budget-App.git
+cd Budget-App
+pip install .
+```
 
-## Usage
-
-1. Save `budget_app.py` in your project directory.
-2. Import and use the `Category` class and `create_spend_chart` function in a Python script or interpreter.
-
-Example usage:
+## 🧱 Usage (Python API)
 
 ```python
-# Create categories
+from budget_app import Category, create_spend_chart
+
 food = Category("Food")
 clothing = Category("Clothing")
+auto = Category("Auto")
 
-# Add transactions
 food.deposit(1000, "initial deposit")
-food.withdraw(10.15, "groceries")
-food.withdraw(15.89, "restaurant and more food for dessert")
-food.transfer(50, clothing)
+food.withdraw(15.89, "groceries")
 
-# Print category ledger
 print(food)
-
-# Create spend chart
-print(create_spend_chart([food, clothing]))
+print(create_spend_chart([food, clothing, auto]))
 ```
 
-Output (for `print(food)`):
-```
-*************Food*************
-initial deposit        1000.00
-groceries               -10.15
-restaurant and more foo -15.89
-Transfer to Clothing    -50.00
-Total: 923.96
+## 🖥️ Command Line Interface
+
+Generate a spend chart from the terminal:
+
+```bash
+python -m budget_app --chart Food Clothing Auto
 ```
 
-Output (for `print(create_spend_chart([food, clothing]))`):
+| Flag      | Description                                    |
+|-----------|------------------------------------------------|
+| `--chart` | Generate a spending chart for given categories |
+
+## 📊 Sample Spend Chart
+
 ```
 Percentage spent by category
 100|          
@@ -78,32 +67,76 @@ Percentage spent by category
  80|          
  70|          
  60|          
- 50|          
- 40|          
- 30|          
- 20| o        
- 10| o        
-  0| o  o     
+ 50|    o     
+ 40|    o     
+ 30|    o     
+ 20| o  o     
+ 10| o  o     
+  0| o  o  o  
     ----------
-     F  C  
-     o  l  
-     o  o  
-     d  t  
-        h  
-        i  
-        n  
-        g
+     F  C  A  
+     o  l  u  
+     o  o  t  
+     d  t  o  
+        h     
+        i     
+        n     
+        g     
 ```
 
-## File Structure
+## 🧾 Sample Ledger Output
 
-- `budget_app.py`: Main Python script containing the `Category` class and `create_spend_chart` function.
-- `README.md`: This documentation file.
+```
+*************Food*************
+initial deposit        1000.00
+groceries               -15.89
+snacks                  -10.15
+Transfer to Clothing    -50.00
+Total: 923.96
+```
 
-## Contributing
+## 📚 Documentation
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make changes and commit (`git commit -m "Add feature"`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
+Full documentation is available here:  
+👉 **https://thecomputationalcore.github.io/Budget-App/**
+
+## 📂 Project Structure
+
+```
+budget_app/
+    __init__.py
+    core.py
+    chart.py
+    cli.py
+docs/
+    api.md
+    cli.md
+    examples.md
+    usage.md
+tests/
+    test_core.py
+    test_chart.py
+.github/workflows/
+    tests.yml
+    lint.yml
+    deploy-docs.yml
+```
+
+## 🧪 Running Tests
+
+```bash
+pytest -q
+```
+
+## 🤝 Contributing
+
+See **CONTRIBUTING.md** for complete workflow.
+
+## 🔐 Security
+
+For reporting vulnerabilities, see **SECURITY.md**.
+
+## 📄 License
+
+MIT License  
+Made with ❤️ by **The Computational Core**

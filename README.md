@@ -7,8 +7,8 @@ Fully documented, fully tested, and shipped with a simple command-line interface
 
 ![Tests](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/tests.yml?label=Tests&logo=pytest)
 ![Docs](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/deploy-docs.yml?label=Docs&logo=mkdocs)
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![License](https://img.shields.io/github/license/TheComputationalCore/Budget-App)
+![Deployed](https://img.shields.io/badge/Deployed-GitHub%20Pages-brightgreen?logo=github)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## 🚀 Features
 
@@ -138,4 +138,4 @@ For reporting vulnerabilities, see **SECURITY.md**.
 ## 📄 License
 
 MIT License  
-
+Made with ❤️ by **The Computational Core**

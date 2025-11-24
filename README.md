@@ -6,7 +6,6 @@ Fully documented, fully tested, and shipped with a simple command-line interface
 ## 🔖 Badges
 
 ![Tests](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/tests.yml?label=Tests&logo=pytest)
-![Lint](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/lint.yml?label=Lint&logo=python)
 ![Docs](https://img.shields.io/github/actions/workflow/status/TheComputationalCore/Budget-App/deploy-docs.yml?label=Docs&logo=mkdocs)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
 ![License](https://img.shields.io/github/license/TheComputationalCore/Budget-App)

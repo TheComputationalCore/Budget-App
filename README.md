@@ -139,4 +139,4 @@ For reporting vulnerabilities, see **SECURITY.md**.
 ## 📄 License
 
 MIT License  
-Made with ❤️ by **The Computational Core**
+
